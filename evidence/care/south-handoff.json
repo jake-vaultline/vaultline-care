@@ -1,0 +1,556 @@
+{
+  "schema": "vaultline-care-handoff-v1",
+  "generatedAt": "2026-10-12T07:38:20.158Z",
+  "synthetic": true,
+  "deployment": {
+    "id": "south-edit",
+    "tenantId": "south",
+    "name": "South House",
+    "label": "Production office",
+    "synthetic": true,
+    "reference": "synthetic:south-edit",
+    "version": "Media Nexus 1.0.154",
+    "modules": [
+      "Archive",
+      "Relay",
+      "Support"
+    ],
+    "hardware": "Mac Studio · Apple M2 Max · 32 GB",
+    "storage": "Field SSD · 4 TB / Delivery RAID · 16 TB",
+    "tools": [
+      "transfer_status",
+      "destination_status"
+    ],
+    "permissions": [],
+    "docs": [
+      {
+        "id": "south-relay-guide",
+        "title": "South House · destination capacity",
+        "revision": "demo-1",
+        "content": "Synthetic deployment guide. Delivery RAID is the delivery target. When destination_full is reported, retrying does not make room. Ask Jake to review capacity or choose another approved destination. Never delete media to free space without exact owner authorization and a verified backup. Diagnostic log access is not configured for this deployment."
+      }
+    ]
+  },
+  "case": {
+    "id": "care-12c4a990-2c1e-4cb6-9d5b-45f56b3a096f",
+    "tenantId": "south",
+    "deploymentId": "south-edit",
+    "title": "My transfer stalled.",
+    "status": "needs_jake",
+    "createdAt": "2026-10-12T07:37:55.622Z",
+    "messages": [
+      {
+        "id": "4b699e68-33c0-409d-8e29-b2552f3b22d3",
+        "role": "client",
+        "actor": "demo-south",
+        "text": "My transfer stalled.",
+        "at": "2026-10-12T07:37:55.622Z"
+      },
+      {
+        "id": "6b421fd2-e982-4b8e-b5b4-e5b95c5c3318",
+        "role": "assistant",
+        "at": "2026-10-12T07:37:55.624Z",
+        "text": "South House’s “Winter launch” transfer stopped at 68%. The destination is reachable but has 0 GB free. Retrying cannot fix the capacity problem. The deployment guide calls for Jake to review capacity or another approved destination.",
+        "next": "Prepare a handoff for Jake. Deleting media is consequential and is not available through this workspace.",
+        "finding": "destination_full",
+        "evidenceIds": [
+          "ev-e835a681-bbff-4501-b760-1363df01d341",
+          "ev-4657fbce-1d0c-4ed5-ad63-9f7226890246",
+          "ev-a6021bfe-793d-41a4-be55-f8a820f9044c",
+          "ev-51726654-428b-4b7f-adbd-2fbfbc2d038f"
+        ]
+      },
+      {
+        "id": "fc468f0f-8257-42a8-ad50-46d4e61831cd",
+        "role": "client",
+        "actor": "demo-south",
+        "text": "Our editor needs this delivery today. Please include the capacity evidence for Jake.",
+        "at": "2026-10-12T07:38:10.433Z"
+      },
+      {
+        "id": "e92c66a5-92fe-4ea2-99f6-bbe8ff1fdb8f",
+        "role": "assistant",
+        "at": "2026-10-12T07:38:10.436Z",
+        "text": "South House’s “Winter launch” transfer stopped at 68%. The destination is reachable but has 0 GB free. Retrying cannot fix the capacity problem. The deployment guide calls for Jake to review capacity or another approved destination.",
+        "next": "Prepare a handoff for Jake. Deleting media is consequential and is not available through this workspace.",
+        "finding": "destination_full",
+        "evidenceIds": [
+          "ev-86490a6a-e076-4675-8ce1-63ce44994685",
+          "ev-ad01bddd-427a-4b37-ade4-9bd2cf49d489",
+          "ev-a9c77146-5dbd-45e0-8403-1adced373e95",
+          "ev-4953f8a7-346a-49fa-a41a-be5498dd8902"
+        ]
+      }
+    ],
+    "evidence": [
+      {
+        "id": "ev-e835a681-bbff-4501-b760-1363df01d341",
+        "kind": "diagnostic",
+        "operation": "transfer_status",
+        "deploymentId": "south-edit",
+        "at": "2026-10-12T07:37:55.623Z",
+        "result": {
+          "transferId": "south-transfer-01",
+          "name": "Winter launch",
+          "status": "stalled",
+          "progress": 68,
+          "blocker": "destination_full",
+          "revision": 1
+        },
+        "available": true,
+        "contentTrust": "untrusted-diagnostic-content"
+      },
+      {
+        "id": "ev-4657fbce-1d0c-4ed5-ad63-9f7226890246",
+        "kind": "diagnostic",
+        "operation": "destination_status",
+        "deploymentId": "south-edit",
+        "at": "2026-10-12T07:37:55.623Z",
+        "result": {
+          "online": true,
+          "freeGb": 0,
+          "revision": 1
+        },
+        "available": true,
+        "contentTrust": "untrusted-diagnostic-content"
+      },
+      {
+        "id": "ev-a6021bfe-793d-41a4-be55-f8a820f9044c",
+        "kind": "diagnostic",
+        "operation": "diagnostic_log",
+        "deploymentId": "south-edit",
+        "at": "2026-10-12T07:37:55.624Z",
+        "available": false,
+        "limitation": "This diagnostic is not available for this deployment."
+      },
+      {
+        "id": "ev-51726654-428b-4b7f-adbd-2fbfbc2d038f",
+        "kind": "document",
+        "deploymentId": "south-edit",
+        "at": "2026-10-12T07:37:55.624Z",
+        "available": true,
+        "title": "South House · destination capacity",
+        "documentId": "south-relay-guide",
+        "revision": "demo-1",
+        "excerpt": "Synthetic deployment guide. Delivery RAID is the delivery target. When destination_full is reported, retrying does not make room. Ask Jake to review capacity or choose another approved destination. Never delete media to free space without exact owner authorization and a verified backup. Diagnostic log access is not configured for this deployment.",
+        "contentTrust": "untrusted-knowledge-content"
+      },
+      {
+        "id": "ev-86490a6a-e076-4675-8ce1-63ce44994685",
+        "kind": "diagnostic",
+        "operation": "transfer_status",
+        "deploymentId": "south-edit",
+        "at": "2026-10-12T07:38:10.434Z",
+        "result": {
+          "transferId": "south-transfer-01",
+          "name": "Winter launch",
+          "status": "stalled",
+          "progress": 68,
+          "blocker": "destination_full",
+          "revision": 1
+        },
+        "available": true,
+        "contentTrust": "untrusted-diagnostic-content"
+      },
+      {
+        "id": "ev-ad01bddd-427a-4b37-ade4-9bd2cf49d489",
+        "kind": "diagnostic",
+        "operation": "destination_status",
+        "deploymentId": "south-edit",
+        "at": "2026-10-12T07:38:10.435Z",
+        "result": {
+          "online": true,
+          "freeGb": 0,
+          "revision": 1
+        },
+        "available": true,
+        "contentTrust": "untrusted-diagnostic-content"
+      },
+      {
+        "id": "ev-a9c77146-5dbd-45e0-8403-1adced373e95",
+        "kind": "diagnostic",
+        "operation": "diagnostic_log",
+        "deploymentId": "south-edit",
+        "at": "2026-10-12T07:38:10.435Z",
+        "available": false,
+        "limitation": "This diagnostic is not available for this deployment."
+      },
+      {
+        "id": "ev-4953f8a7-346a-49fa-a41a-be5498dd8902",
+        "kind": "document",
+        "deploymentId": "south-edit",
+        "at": "2026-10-12T07:38:10.436Z",
+        "available": true,
+        "title": "South House · destination capacity",
+        "documentId": "south-relay-guide",
+        "revision": "demo-1",
+        "excerpt": "Synthetic deployment guide. Delivery RAID is the delivery target. When destination_full is reported, retrying does not make room. Ask Jake to review capacity or choose another approved destination. Never delete media to free space without exact owner authorization and a verified backup. Diagnostic log access is not configured for this deployment.",
+        "contentTrust": "untrusted-knowledge-content"
+      }
+    ],
+    "proposals": [],
+    "attemptedActions": [],
+    "usages": [
+      {
+        "provider": "evidence-rules",
+        "model": "deterministic-v1",
+        "externalEnabled": false,
+        "calls": 0,
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "costUsd": 0,
+        "note": "Local evidence rules; no model call or token charge.",
+        "at": "2026-10-12T07:37:55.625Z"
+      },
+      {
+        "provider": "evidence-rules",
+        "model": "deterministic-v1",
+        "externalEnabled": false,
+        "calls": 0,
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "costUsd": 0,
+        "note": "Local evidence rules; no model call or token charge.",
+        "at": "2026-10-12T07:38:10.436Z"
+      }
+    ],
+    "handoff": {
+      "createdAt": "2026-10-12T07:38:20.157Z",
+      "summary": "South House’s “Winter launch” transfer stopped at 68%. The destination is reachable but has 0 GB free. Retrying cannot fix the capacity problem. The deployment guide calls for Jake to review capacity or another approved destination.",
+      "nextAction": "Jake: review the evidence, missing checks, attempted actions and approvals. Confirm deployment authorization before using the existing Media Nexus repair path.",
+      "limitation": "Synthetic demo. No production connector or client enrollment. Downloading this package does not send it to Jake."
+    },
+    "audit": [
+      {
+        "sequence": 19,
+        "at": "2026-10-12T07:37:55.622Z",
+        "caseId": "care-12c4a990-2c1e-4cb6-9d5b-45f56b3a096f",
+        "deploymentId": "south-edit",
+        "tenantId": "south",
+        "type": "case.opened",
+        "actor": "demo-south",
+        "data": {
+          "outcome": "Case opened for assigned deployment."
+        },
+        "previous": "f41da8ac5204b1fa496b7944a3d338423fb31713baa1aeb683e509a832f0257a",
+        "hash": "82cea97ea21f4b091e6a92481422bb7ebd1a04cc4c784699dbe05e4710579a63"
+      },
+      {
+        "sequence": 20,
+        "at": "2026-10-12T07:37:55.623Z",
+        "caseId": "care-12c4a990-2c1e-4cb6-9d5b-45f56b3a096f",
+        "deploymentId": "south-edit",
+        "tenantId": "south",
+        "type": "tool.requested",
+        "actor": "demo-south",
+        "data": {
+          "operation": "transfer_status",
+          "args": {
+            "transferId": "south-transfer-01"
+          },
+          "trust": "read-only"
+        },
+        "previous": "82cea97ea21f4b091e6a92481422bb7ebd1a04cc4c784699dbe05e4710579a63",
+        "hash": "37c6b2a1a1b12eee72c151556e93987885d70029b62d2c9c4d7d6d76d3f1826a"
+      },
+      {
+        "sequence": 21,
+        "at": "2026-10-12T07:37:55.623Z",
+        "caseId": "care-12c4a990-2c1e-4cb6-9d5b-45f56b3a096f",
+        "deploymentId": "south-edit",
+        "tenantId": "south",
+        "type": "tool.completed",
+        "actor": "demo-south",
+        "data": {
+          "operation": "transfer_status",
+          "evidenceId": "ev-e835a681-bbff-4501-b760-1363df01d341",
+          "resultDigest": "7aee030c5736c69125a2a9a68923d54732fb99d0a74630b50bb20ca6a41715af",
+          "outcome": "Read completed."
+        },
+        "previous": "37c6b2a1a1b12eee72c151556e93987885d70029b62d2c9c4d7d6d76d3f1826a",
+        "hash": "bb8e41e13d401568ee2cff58c05adacca6cda88e45509bdf943562badaff4537"
+      },
+      {
+        "sequence": 22,
+        "at": "2026-10-12T07:37:55.623Z",
+        "caseId": "care-12c4a990-2c1e-4cb6-9d5b-45f56b3a096f",
+        "deploymentId": "south-edit",
+        "tenantId": "south",
+        "type": "tool.requested",
+        "actor": "demo-south",
+        "data": {
+          "operation": "destination_status",
+          "args": {
+            "transferId": "south-transfer-01"
+          },
+          "trust": "read-only"
+        },
+        "previous": "bb8e41e13d401568ee2cff58c05adacca6cda88e45509bdf943562badaff4537",
+        "hash": "22fb08a71273e6ec6bb229ea5d614a607a386e3704fc397c032b326f1ff64605"
+      },
+      {
+        "sequence": 23,
+        "at": "2026-10-12T07:37:55.624Z",
+        "caseId": "care-12c4a990-2c1e-4cb6-9d5b-45f56b3a096f",
+        "deploymentId": "south-edit",
+        "tenantId": "south",
+        "type": "tool.completed",
+        "actor": "demo-south",
+        "data": {
+          "operation": "destination_status",
+          "evidenceId": "ev-4657fbce-1d0c-4ed5-ad63-9f7226890246",
+          "resultDigest": "4ac79a682814659509b65fa3f15f50fb60fff1eb1bcf47a9547fcb4a2212dc78",
+          "outcome": "Read completed."
+        },
+        "previous": "22fb08a71273e6ec6bb229ea5d614a607a386e3704fc397c032b326f1ff64605",
+        "hash": "99570051ce5538c0b71bcee9bcec98e9aa70ee6d8dadd3ddd7d43284cf0dfdef"
+      },
+      {
+        "sequence": 24,
+        "at": "2026-10-12T07:37:55.624Z",
+        "caseId": "care-12c4a990-2c1e-4cb6-9d5b-45f56b3a096f",
+        "deploymentId": "south-edit",
+        "tenantId": "south",
+        "type": "tool.requested",
+        "actor": "demo-south",
+        "data": {
+          "operation": "diagnostic_log",
+          "args": {
+            "transferId": "south-transfer-01"
+          },
+          "trust": "read-only"
+        },
+        "previous": "99570051ce5538c0b71bcee9bcec98e9aa70ee6d8dadd3ddd7d43284cf0dfdef",
+        "hash": "8449c4508594ce16aa9a4ae9f538112e55c3e6ae21335e4269497586231cabe4"
+      },
+      {
+        "sequence": 25,
+        "at": "2026-10-12T07:37:55.624Z",
+        "caseId": "care-12c4a990-2c1e-4cb6-9d5b-45f56b3a096f",
+        "deploymentId": "south-edit",
+        "tenantId": "south",
+        "type": "tool.unavailable",
+        "actor": "demo-south",
+        "data": {
+          "operation": "diagnostic_log",
+          "evidenceId": "ev-a6021bfe-793d-41a4-be55-f8a820f9044c",
+          "outcome": "This diagnostic is not available for this deployment."
+        },
+        "previous": "8449c4508594ce16aa9a4ae9f538112e55c3e6ae21335e4269497586231cabe4",
+        "hash": "868cdf6e9cff5cfb8f4645d8eb9f45351a14fe0bbddc7bb61e96c8d27929aa35"
+      },
+      {
+        "sequence": 26,
+        "at": "2026-10-12T07:37:55.624Z",
+        "caseId": "care-12c4a990-2c1e-4cb6-9d5b-45f56b3a096f",
+        "deploymentId": "south-edit",
+        "tenantId": "south",
+        "type": "retrieval.completed",
+        "actor": "demo-south",
+        "data": {
+          "documentId": "south-relay-guide",
+          "revision": "demo-1",
+          "evidenceId": "ev-51726654-428b-4b7f-adbd-2fbfbc2d038f"
+        },
+        "previous": "868cdf6e9cff5cfb8f4645d8eb9f45351a14fe0bbddc7bb61e96c8d27929aa35",
+        "hash": "f8bd0b99c85ac44772c28cf9d3b57f81909580739292f684a9e6b491f995d42c"
+      },
+      {
+        "sequence": 27,
+        "at": "2026-10-12T07:37:55.625Z",
+        "caseId": "care-12c4a990-2c1e-4cb6-9d5b-45f56b3a096f",
+        "deploymentId": "south-edit",
+        "tenantId": "south",
+        "type": "diagnosis.completed",
+        "actor": "demo-south",
+        "data": {
+          "finding": "destination_full",
+          "evidenceIds": [
+            "ev-e835a681-bbff-4501-b760-1363df01d341",
+            "ev-4657fbce-1d0c-4ed5-ad63-9f7226890246",
+            "ev-a6021bfe-793d-41a4-be55-f8a820f9044c",
+            "ev-51726654-428b-4b7f-adbd-2fbfbc2d038f"
+          ],
+          "model": "deterministic-v1",
+          "calls": 0,
+          "outcome": "needs_jake"
+        },
+        "previous": "f8bd0b99c85ac44772c28cf9d3b57f81909580739292f684a9e6b491f995d42c",
+        "hash": "0b988100e8a9126a2820aa9722903f8a651797720a045b1fd8f776cd5879d249"
+      },
+      {
+        "sequence": 28,
+        "at": "2026-10-12T07:38:10.433Z",
+        "caseId": "care-12c4a990-2c1e-4cb6-9d5b-45f56b3a096f",
+        "deploymentId": "south-edit",
+        "tenantId": "south",
+        "type": "case.message",
+        "actor": "demo-south",
+        "data": {
+          "outcome": "Follow-up recorded."
+        },
+        "previous": "0b988100e8a9126a2820aa9722903f8a651797720a045b1fd8f776cd5879d249",
+        "hash": "27c7f839be5be1d7463a5759c026129db07e033da7fca931054d77404a02d272"
+      },
+      {
+        "sequence": 29,
+        "at": "2026-10-12T07:38:10.433Z",
+        "caseId": "care-12c4a990-2c1e-4cb6-9d5b-45f56b3a096f",
+        "deploymentId": "south-edit",
+        "tenantId": "south",
+        "type": "tool.requested",
+        "actor": "demo-south",
+        "data": {
+          "operation": "transfer_status",
+          "args": {
+            "transferId": "south-transfer-01"
+          },
+          "trust": "read-only"
+        },
+        "previous": "27c7f839be5be1d7463a5759c026129db07e033da7fca931054d77404a02d272",
+        "hash": "1d31a862390f8cf24ede52dffdf97b251534789a6bccc16d43da33514ca91faf"
+      },
+      {
+        "sequence": 30,
+        "at": "2026-10-12T07:38:10.434Z",
+        "caseId": "care-12c4a990-2c1e-4cb6-9d5b-45f56b3a096f",
+        "deploymentId": "south-edit",
+        "tenantId": "south",
+        "type": "tool.completed",
+        "actor": "demo-south",
+        "data": {
+          "operation": "transfer_status",
+          "evidenceId": "ev-86490a6a-e076-4675-8ce1-63ce44994685",
+          "resultDigest": "7aee030c5736c69125a2a9a68923d54732fb99d0a74630b50bb20ca6a41715af",
+          "outcome": "Read completed."
+        },
+        "previous": "1d31a862390f8cf24ede52dffdf97b251534789a6bccc16d43da33514ca91faf",
+        "hash": "97106d1a3a741d51ca10220216e98aeba8ee5ac18770f651c7b3efbfd18e3ffb"
+      },
+      {
+        "sequence": 31,
+        "at": "2026-10-12T07:38:10.434Z",
+        "caseId": "care-12c4a990-2c1e-4cb6-9d5b-45f56b3a096f",
+        "deploymentId": "south-edit",
+        "tenantId": "south",
+        "type": "tool.requested",
+        "actor": "demo-south",
+        "data": {
+          "operation": "destination_status",
+          "args": {
+            "transferId": "south-transfer-01"
+          },
+          "trust": "read-only"
+        },
+        "previous": "97106d1a3a741d51ca10220216e98aeba8ee5ac18770f651c7b3efbfd18e3ffb",
+        "hash": "05c0113bb3a0248293ee212ebe644f7cb702701d58f258833a4015608ef9fbbf"
+      },
+      {
+        "sequence": 32,
+        "at": "2026-10-12T07:38:10.435Z",
+        "caseId": "care-12c4a990-2c1e-4cb6-9d5b-45f56b3a096f",
+        "deploymentId": "south-edit",
+        "tenantId": "south",
+        "type": "tool.completed",
+        "actor": "demo-south",
+        "data": {
+          "operation": "destination_status",
+          "evidenceId": "ev-ad01bddd-427a-4b37-ade4-9bd2cf49d489",
+          "resultDigest": "4ac79a682814659509b65fa3f15f50fb60fff1eb1bcf47a9547fcb4a2212dc78",
+          "outcome": "Read completed."
+        },
+        "previous": "05c0113bb3a0248293ee212ebe644f7cb702701d58f258833a4015608ef9fbbf",
+        "hash": "41b6c7fb6881afb9590d9b684f316503fdff394d2f77e239d201565ffeac6755"
+      },
+      {
+        "sequence": 33,
+        "at": "2026-10-12T07:38:10.435Z",
+        "caseId": "care-12c4a990-2c1e-4cb6-9d5b-45f56b3a096f",
+        "deploymentId": "south-edit",
+        "tenantId": "south",
+        "type": "tool.requested",
+        "actor": "demo-south",
+        "data": {
+          "operation": "diagnostic_log",
+          "args": {
+            "transferId": "south-transfer-01"
+          },
+          "trust": "read-only"
+        },
+        "previous": "41b6c7fb6881afb9590d9b684f316503fdff394d2f77e239d201565ffeac6755",
+        "hash": "891910fb1223714dbbda0f160206645e30fce52707c9cc9627bbd7cf77ff6a4d"
+      },
+      {
+        "sequence": 34,
+        "at": "2026-10-12T07:38:10.435Z",
+        "caseId": "care-12c4a990-2c1e-4cb6-9d5b-45f56b3a096f",
+        "deploymentId": "south-edit",
+        "tenantId": "south",
+        "type": "tool.unavailable",
+        "actor": "demo-south",
+        "data": {
+          "operation": "diagnostic_log",
+          "evidenceId": "ev-a9c77146-5dbd-45e0-8403-1adced373e95",
+          "outcome": "This diagnostic is not available for this deployment."
+        },
+        "previous": "891910fb1223714dbbda0f160206645e30fce52707c9cc9627bbd7cf77ff6a4d",
+        "hash": "6e41e3b00961471fd8230fab4383ed5098c7184b0aa0f7be3b338ddda4a25bd2"
+      },
+      {
+        "sequence": 35,
+        "at": "2026-10-12T07:38:10.436Z",
+        "caseId": "care-12c4a990-2c1e-4cb6-9d5b-45f56b3a096f",
+        "deploymentId": "south-edit",
+        "tenantId": "south",
+        "type": "retrieval.completed",
+        "actor": "demo-south",
+        "data": {
+          "documentId": "south-relay-guide",
+          "revision": "demo-1",
+          "evidenceId": "ev-4953f8a7-346a-49fa-a41a-be5498dd8902"
+        },
+        "previous": "6e41e3b00961471fd8230fab4383ed5098c7184b0aa0f7be3b338ddda4a25bd2",
+        "hash": "1169666cd958a5061b65c6f59cec6c35c0812cce5928d922405495f0a85e511e"
+      },
+      {
+        "sequence": 36,
+        "at": "2026-10-12T07:38:10.436Z",
+        "caseId": "care-12c4a990-2c1e-4cb6-9d5b-45f56b3a096f",
+        "deploymentId": "south-edit",
+        "tenantId": "south",
+        "type": "diagnosis.completed",
+        "actor": "demo-south",
+        "data": {
+          "finding": "destination_full",
+          "evidenceIds": [
+            "ev-86490a6a-e076-4675-8ce1-63ce44994685",
+            "ev-ad01bddd-427a-4b37-ade4-9bd2cf49d489",
+            "ev-a9c77146-5dbd-45e0-8403-1adced373e95",
+            "ev-4953f8a7-346a-49fa-a41a-be5498dd8902"
+          ],
+          "model": "deterministic-v1",
+          "calls": 0,
+          "outcome": "needs_jake"
+        },
+        "previous": "1169666cd958a5061b65c6f59cec6c35c0812cce5928d922405495f0a85e511e",
+        "hash": "bb189f3836f317f5d66dc5db1ee61c4f990ce64ea3c018ceabb5ececcdacdb76"
+      },
+      {
+        "sequence": 37,
+        "at": "2026-10-12T07:38:20.157Z",
+        "caseId": "care-12c4a990-2c1e-4cb6-9d5b-45f56b3a096f",
+        "deploymentId": "south-edit",
+        "tenantId": "south",
+        "type": "handoff.prepared",
+        "actor": "demo-south",
+        "data": {
+          "outcome": "Review package prepared; not sent."
+        },
+        "previous": "bb189f3836f317f5d66dc5db1ee61c4f990ce64ea3c018ceabb5ececcdacdb76",
+        "hash": "8dd6f3764dc032a7ec873ab617a337de779fde4759466a54c5fb72373906beae"
+      }
+    ]
+  },
+  "auditIntegrity": true,
+  "sourceOfTruth": "Demo profile only. Production deployment records remain in existing overlays/Portal; support authorization remains in Media Nexus."
+}

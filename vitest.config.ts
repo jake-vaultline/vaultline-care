@@ -1,3 +1,4 @@
+// Modified by Vaultline: the Care backend uses node:test, separate from upstream jsdom tests.
 import { defineConfig } from "vitest/config";
 import react from "@vitejs/plugin-react";
 
@@ -11,6 +12,6 @@ export default defineConfig({
     // its own config (vitest.integration.config.ts) with a longer
     // timeout. `npm test` is for fast unit tests only — integration
     // is `npm run test:integration`.
-    exclude: ["**/node_modules/**", "**/dist/**", "integration_tests/**"],
+    exclude: ["**/node_modules/**", "**/dist/**", "**/dist-care/**", "integration_tests/**", "care/**"],
   },
 });

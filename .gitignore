@@ -1,4 +1,8 @@
+# Modified by Vaultline: keep Care runtime state and build output outside version control.
 .vite
+dist-care/
+.care-data/
+care-vault.json*
 
 # Logs
 logs

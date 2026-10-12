@@ -1,3 +1,32 @@
+<!-- Modified by Vaultline: Care overview added; upstream documentation and attribution preserved below. -->
+# Vaultline Care
+
+A working deployment-specific support workspace for Media Nexus, adapted from OpenIT.
+The first slice is a clearly labeled local demo: two fictional creative teams, real
+case persistence and access checks, cited diagnostic evidence, an exact repair preview,
+approval, execution, read-back verification and a complete Jake handoff.
+
+```bash
+npm ci
+npm run care:build
+npm run care:start
+```
+
+Open **http://127.0.0.1:4317**. No API key or Rust install is needed for the demo.
+Try “My transfer stalled.” as North Studio, review and run its reversible demo repair,
+then switch to South House for a different, unresolved capacity problem.
+
+[Setup and scenario](docs/care/SETUP.md) · [Existing integrations and precise blockers](docs/care/INTEGRATIONS.md) · [Verification](docs/care/VERIFICATION.md) · [Attribution](docs/care/ATTRIBUTION.md)
+
+![Vaultline Care diagnosis and verified synthetic recovery](evidence/care/03-recovery-verified.png)
+
+This browser workflow uses a constrained local gateway. Production authentication,
+client enrollment and real repair connectors are not enabled. The original OpenIT
+desktop application and its documentation are preserved below. Apache-2.0 LICENSE
+and Pinkfish AI attribution are retained; see [NOTICE](NOTICE).
+
+---
+
 <p align="center">
   <img src="src-tauri/icons/128x128@2x.png" width="128" alt="OpenIT icon" />
 </p>

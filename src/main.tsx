@@ -1,3 +1,4 @@
+// Modified by Vaultline: separate Care entry prevents launching OpenIT's unrestricted terminal.
 import React from "react";
 import ReactDOM from "react-dom/client";
 // Bundled fonts — desktop app must work offline. Weights pulled match
@@ -15,7 +16,6 @@ import "@fontsource-variable/source-serif-4/standard-italic.css";
 // landing-page design system. Only italic weights needed.
 import "@fontsource/fraunces/500-italic.css";
 import "@fontsource/fraunces/600-italic.css";
-import App from "./App";
 import { ToastProvider } from "./Toast";
 
 // Mark the host OS on <html> so layout that differs by platform
@@ -33,10 +33,15 @@ import { ToastProvider } from "./Toast";
   document.documentElement.setAttribute("data-os", os);
 }
 
+// Original desktop mode remains available, but its modules are never loaded in Care.
+const App = import.meta.env.VITE_CARE === 'true'
+  ? React.lazy(() => import('./care/CareApp'))
+  : React.lazy(() => import('./App'));
+
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <ToastProvider>
-      <App />
+      <React.Suspense fallback={<p>Opening workspace…</p>}><App /></React.Suspense>
     </ToastProvider>
   </React.StrictMode>,
 );

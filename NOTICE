@@ -1,0 +1,11 @@
+Vaultline Care
+
+This product is adapted from OpenIT, https://github.com/openit-app/openit-app.
+Upstream source baseline: v3.2.0, 1b3141604e8c04aaecad1c4655f797791afb8238.
+Copyright 2026 Pinkfish AI. Licensed under the Apache License, Version 2.0.
+The upstream release has no NOTICE file; this notice adds derivative attribution.
+
+Vaultline modifications add a deployment-scoped support workspace, constrained
+diagnostics, approval and verification workflow, case audit and handoff, and
+Vaultline Care branding. These modifications are licensed under Apache-2.0.
+See LICENSE and docs/care/ATTRIBUTION.md. No endorsement by upstream is implied.

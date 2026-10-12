@@ -1,3 +1,4 @@
+# Modified by Vaultline: verify the Care service and browser build in existing frontend jobs.
 name: CI
 
 on:
@@ -26,6 +27,8 @@ jobs:
       - run: npm ci
       - run: npx tsc --noEmit
       - run: npm test
+      - run: npm run care:test
+      - run: npm run care:build
       - run: npm run build
 
   rust:
@@ -75,6 +78,8 @@ jobs:
       - run: npm ci
       - run: npx tsc --noEmit
       - run: npm test
+      - run: npm run care:test
+      - run: npm run care:build
       - run: npm run build
 
   rust-windows:

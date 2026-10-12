@@ -3,6 +3,19 @@ name: OpenIT
 description: Open-source, file-based team-knowledge workspace desktop app powered by Claude Code. macOS, Apache 2.0.
 ---
 
+<!-- Modified by Vaultline: Care execution model added; upstream guidance retained below. -->
+## Vaultline Care fork
+
+This fork adds a constrained local support workspace. Run `npm run care:dev`, or
+`npm run care:build` then `npm run care:start`. Care does not launch Claude Code or
+expose OpenIT's PTY, general filesystem tools, plugin scripts or updater. It is an
+explicit synthetic demo; never load client records into the demo identity selector.
+
+Care server logic is in `care/`, UI in `src/care/`, and setup/integration/verification
+documentation in `docs/care/`. Run `npm run care:test`, `npm test`, and
+`npm run care:build` for this slice. Existing CI checks both Care and upstream.
+The original desktop workflow below remains available separately.
+
 ## Quick reference
 
 | What | Where |
