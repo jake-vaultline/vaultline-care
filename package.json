@@ -19,7 +19,11 @@
     "cleanslate": "node scripts/cleanslate.mjs",
     "clear-cloud-slate": "node scripts/clear-cloud-slate.mjs",
     "cleanup-cloud": "scripts/cleanup-cloud.sh",
-    "devmode": "node scripts/devmode.mjs"
+    "devmode": "node scripts/devmode.mjs",
+    "care:dev": "node care/server.mjs",
+    "care:build": "tsc && vite build --config vite.care.config.ts && node care/licenses.mjs",
+    "care:start": "node care/server.mjs --production",
+    "care:test": "node --test care/*.test.mjs"
   },
   "dependencies": {
     "@fontsource-variable/source-serif-4": "^5.2.9",
@@ -60,5 +64,8 @@
     "typescript": "~6.0.3",
     "vite": "^7.0.4",
     "vitest": "^4.1.7"
+  },
+  "vaultlineCare": {
+    "modificationNotice": "Modified by Vaultline: Care development, build and test commands added. Upstream package identity retained."
   }
 }
